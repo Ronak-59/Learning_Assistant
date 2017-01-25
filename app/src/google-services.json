@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "181792826162",
+    "firebase_url": "https://learning-assistant.firebaseio.com",
+    "project_id": "learning-assistant",
+    "storage_bucket": "learning-assistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181792826162:android:a1f6abeeb525dafa",
+        "android_client_info": {
+          "package_name": "com.android.learningassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181792826162-fq03mtk12vd5ouk389kqq6j29ffm18oo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.learningassistant",
+            "certificate_hash": "2FFCB0C99A383F25A867EAFE4F80A28DB11CD5E4"
+          }
+        },
+        {
+          "client_id": "181792826162-bd7uvtvj2j30vduvq4i1tur18mfn4k46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVnW0_F9BAV0M8tsWxorLlFoGgE6RX-gE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181792826162-bd7uvtvj2j30vduvq4i1tur18mfn4k46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

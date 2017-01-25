@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Learning Assistant</string>
+    <string name="facebook_app_id" translatable="true">410811809255239</string>
+    <string name="facebook_application_id" translatable="true">410811809255239</string>
+    <string name="title_activity_navigation">Navigation</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sendbird_app_id">E6FCA3E6-561A-4B84-BD2C-6528B77384AD</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
