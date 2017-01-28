@@ -3,33 +3,47 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/attendance"
+            android:icon="@drawable/ic_reports"
+            android:title="Attendance Record" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/courses"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Courses" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/e_library"
+            android:icon="@drawable/books"
+            android:title="E-Library" />
+        <item
+            android:id="@+id/forum"
+            android:icon="@drawable/forum"
+            android:title="Forum" />
+
+        <item
+            android:id="@+id/jobs"
+            android:icon="@drawable/ic_account"
+            android:title="Search Jobs" />
+        <item
+            android:id="@+id/projects"
+            android:icon="@drawable/projects"
+            android:title="Projects" />
+        <item
+            android:id="@+id/workshops"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Workshops" />
+        <item
+            android:id="@+id/games"
+            android:icon="@drawable/game"
+            android:title="Games" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/about_us"
+                android:icon="@drawable/about"
+                android:title="About Us" />
+
         </menu>
     </item>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AAEAFF"
+    tools:context="com.clover_studio.spikachatmodule.ChatActivity">
+
+    <TextView
+        android:text="Enter Room id to Connect to:"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:id="@+id/textView2"
+        android:textSize="22sp"
+        android:textColor="@color/default_color_light" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView2"
+        android:background="#FA3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:id="@+id/room_id"
+        android:hint="Room id"
+        android:textSize="22sp"
+        android:textColor="@color/default_color_light"
+        android:textAlignment="center"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <Button
+        android:text="Join Room"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/room_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:id="@+id/button3"
+        android:background="#d2d2d2"
+        android:textColor="@color/default_color_light"
+        android:textSize="20sp"
+        android:layout_width="200dp" />
+
+</RelativeLayout>

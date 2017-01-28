@@ -1,10 +1,10 @@
 package com.android.learningassistant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,39 +12,84 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.clover_studio.spikachatmodule.ChatActivity;
+import com.clover_studio.spikachatmodule.models.Config;
+import com.clover_studio.spikachatmodule.models.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.sendbird.android.SendBird;
-import com.sendbird.android.SendBirdException;
-import com.sendbird.android.User;
+import com.ionicframework.attendance914014.MyActivity;
+
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-private String sandbird_app="E6FCA3E6-561A-4B84-BD2C-6528B77384AD";
     private FirebaseAuth auth;
+    EditText room;
+    String id;
+    Toolbar toolbar = null;
+    NavigationView navigationView=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         auth=FirebaseAuth.getInstance();
+
+        Courses fragment = new Courses();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+        toolbar.setTitle("Courses");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendBird.init(sandbird_app, Navigation.this);
-                SendBird.connect(auth.getCurrentUser().getEmail(), new SendBird.ConnectHandler() {
-                    @Override
-                    public void onConnected(User user, SendBirdException e) {
-                        if (e != null) {
-                            // Error.
-                            return;
+                if(view.getId()==R.id.fab) {
+                    setContentView(R.layout.choose_room);
+                    Button join = (Button) findViewById(R.id.button3);
+
+                    join.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (view.getId() == R.id.button3) {
+                                room = (EditText) findViewById(R.id.room_id);
+                                id = room.getText().toString();
+                                if (id.length() < 1) {
+                                    Snackbar snackbar = Snackbar
+                                            .make(view, "Please Enter the Room id", Snackbar.LENGTH_LONG);
+
+                                    snackbar.show();
+
+
+                                } else {
+                                    User user = new User();
+                                    user.roomID = id;
+                                    user.userID = auth.getCurrentUser().getDisplayName().toString();
+                                    user.name = auth.getCurrentUser().getDisplayName().toString();
+                                    user.avatarURL = auth.getCurrentUser().getPhotoUrl().toString();
+                                    Config config = new Config();
+                                    config.apiBaseUrl = "http://192.168.43.114:80/spika/v1/";
+                                    config.socketUrl = "http://192.168.43.114:80/spika";
+
+                                    ChatActivity.startChatActivityWithConfig(Navigation.this, user, config);
+                                }
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
+
+
+
+                }
+
         });
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -58,12 +103,11 @@ private String sandbird_app="E6FCA3E6-561A-4B84-BD2C-6528B77384AD";
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
+
+
+
+
     }
 
     @Override
@@ -88,23 +132,85 @@ private String sandbird_app="E6FCA3E6-561A-4B84-BD2C-6528B77384AD";
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.attendance) {
+            Intent intent = new Intent(this,MyActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.courses) {
+            Courses fragment = new Courses();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Courses");
 
-        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.e_library) {
+            E_Library fragment = new E_Library();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("E-Library");
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.jobs) {
+            Jobs_Internships fragment = new Jobs_Internships();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Jobs/Internships");
 
-        } else if (id == R.id.nav_send) {
+
+        } else if (id == R.id.projects) {
+            Projects fragment = new Projects();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Projects");
+
+
+        } else if (id == R.id.games) {
+            Games fragment = new Games();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Games");
+
+
+        } else if (id == R.id.workshops) {
+            UpcomingWorkshops fragment = new UpcomingWorkshops();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Upcoming Workshops");
+
+        } else if (id == R.id.about_us) {
+            AboutUs fragment = new AboutUs();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("About Us");
+
+
+        }else if (id == R.id.forum) {
+            Forum fragment = new Forum();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            toolbar.setTitle("Forum");
+
 
         }
 

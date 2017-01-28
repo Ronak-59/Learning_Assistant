@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LearningAssistant.iml" filepath="$PROJECT_DIR$/LearningAssistant.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AttendanceDiary/app/attendance.iml" filepath="$PROJECT_DIR$/AttendanceDiary/app/attendance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpikaChatModule/app/chat.iml" filepath="$PROJECT_DIR$/SpikaChatModule/app/chat.iml" />
     </modules>
   </component>
 </project>
