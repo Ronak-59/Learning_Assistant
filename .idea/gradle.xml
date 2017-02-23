@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AttendanceDiary/app" />
+            <option value="$PROJECT_DIR$/BackTalkr/app" />
             <option value="$PROJECT_DIR$/SpikaChatModule/app" />
             <option value="$PROJECT_DIR$/app" />
           </set>
