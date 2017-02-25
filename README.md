@@ -5,27 +5,32 @@ A material design Android App for College Students developed as a part of I_Hack
 <b>Features : </b>
 
  <b> # Authentication </b>
+ <br>
     <img src="Screenshots/authentication.png" width="300">
 
-  # Chat Rooms - Group/Intra-department discussions room (Real-time)
-<img src="Screenshots/chat.png" width="48"></img>
+<b>  # Chat Rooms - Group/Intra-department discussions room (Real-time) </b>
+<br>
+<img src="Screenshots/chat.png" height="534" width="300"></img>
   
-  # Attendance Manager
-<img src="Screenshots/attendance.png" width="48">
-  <img src="Screenshots/attendance_record.png" width="48">
+<b>  # Attendance Manager </b>
+<br>
+<img src="Screenshots/attendance.png" height="534" width="300">
+  <img src="Screenshots/attendance_record.png" height="534" width="300">
 
-  # Video Lectures
+ <b> # Video Lectures </b>
+ <br>
 <img src="Screenshots/courses.png" height="534" width="300">
 
-  # Events
+<b>  # Events </b>
+<br>
     
 
-  # Discussion Forum
+<b>  # Discussion Forum </b>
    
-
-  # Projects Library
+<br>
+<b>  # Projects Library </b>
     
-
-  # And many more...
+<br>
+<b>  # And many more... </b>
 <img src="Screenshots/nav_drawer.png" height="534" width="300">
 
