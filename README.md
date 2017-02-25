@@ -1,9 +1,10 @@
 # Learning_Assistant
 
 A material design Android App for College Students developed as a part of I_Hack Hackathon during E-Summit 2017 at IIT-Bombay
-Features : 
 
-  # Authentication
+<b>Features : </b>
+
+ <b> # Authentication </b>
     <img src="Screenshots/authentication.png" width="300">
 
   # Chat Rooms - Group/Intra-department discussions room (Real-time)
@@ -11,7 +12,7 @@ Features :
   
   # Attendance Manager
 <img src="Screenshots/attendance.png" width="48">
-<img src="Screenshots/attendance_record.png" width="48">
+  <img src="Screenshots/attendance_record.png" width="48">
 
   # Video Lectures
 <img src="Screenshots/courses.png" height="534" width="300">
