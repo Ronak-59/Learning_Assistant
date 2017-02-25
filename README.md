@@ -4,17 +4,17 @@ A material design Android App for College Students developed as a part of I_Hack
 Features : 
 
   # Authentication
-    <img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/authentication.png" width="300">
+    <img src="Screenshots/authentication.png" width="300">
 
   # Chat Rooms - Group/Intra-department discussions room (Real-time)
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/chat.png" width="48"></img>
+<img src="Screenshots/chat.png" width="48"></img>
   
   # Attendance Manager
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/attendance.png" width="48">
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/attendance_record.png" width="48">
+<img src="Screenshots/attendance.png" width="48">
+<img src="Screenshots/attendance_record.png" width="48">
 
   # Video Lectures
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/courses.png" width="48">
+<img src="Screenshots/courses.png" height="534" width="300">
 
   # Events
     
@@ -26,5 +26,5 @@ Features :
     
 
   # And many more...
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/nav_drawer.png" width="48">
+<img src="Screenshots/nav_drawer.png" height="534" width="300">
 
