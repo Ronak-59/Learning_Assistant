@@ -4,7 +4,7 @@ A material design Android App for College Students developed as a part of I_Hack
 Features : 
 
   # Authentication
-<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/authentication.png" width="48">
+      <img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/authentication.png" width="48">
 
   # Chat Rooms - Group/Intra-department discussions room (Real-time)
 <img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/chat.png" width="48">
