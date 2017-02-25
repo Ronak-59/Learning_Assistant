@@ -4,17 +4,17 @@ A material design Android App for College Students developed as a part of I_Hack
 Features : 
 
   # Authentication
-     ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/authentication.png)
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/authentication.png" width="48">
 
   # Chat Rooms - Group/Intra-department discussions room (Real-time)
-     ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/chat.png)
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/chat.png" width="48">
   
   # Attendance Manager
-     ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/attendance.png)
-        ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/attendance_record.png)
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/attendance.png" width="48">
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/attendance_record.png" width="48">
 
   # Video Lectures
-    ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/courses.png)
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/courses.png" width="48">
 
   # Events
     
@@ -26,5 +26,5 @@ Features :
     
 
   # And many more...
-     ![alt tag](https://github.com/Ronak-59/Learning_Assistant/blob/master/Screenshots/nav_drawer.png)
+<img src="https://github.com/Ronak-59/Learning_Assistant/tree/master/Screenshots/nav_drawer.png" width="48">
 
