@@ -15,7 +15,7 @@ A material design Android App for College Students developed as a part of I_Hack
 <b>  # Attendance Manager </b>
 <br>
 <img src="Screenshots/attendance.png" height="534" width="300">
-  <img src="Screenshots/attendance_record.png" height="534" width="300">
+   <img src="Screenshots/attendance_record.png" height="534" width="300">
 
  <b> # Video Lectures </b>
  <br>
@@ -32,5 +32,6 @@ A material design Android App for College Students developed as a part of I_Hack
     
 <br>
 <b>  # And many more... </b>
+<br>
 <img src="Screenshots/nav_drawer.png" height="534" width="300">
 
