@@ -1,6 +1,15 @@
 # Learning_Assistant
 
-A material design Android App for College Students developed as a part of I_Hack Hackathon during E-Summit 2017 at IIT-Bombay
+Android App “Learning Assistant” for College Students providing “Real-Time Chat System, Attendance Manager, Projects, E-Library, Online Video Tutorials, etc. as well as an Web application hosting an E-Library and an Exam Scheduler Bot. This Project was developed as a part of IIT Bombay's E-Summit 2017 : I_Hack Hackathon.
+
+Key Features : 
+# Smart Authentication
+# Real-Time Chat System
+# Attendance Manager
+# E-Library
+# Projects
+# Video-Tutorials
+# And many more.. 
 
 <b>Features : </b>
 
