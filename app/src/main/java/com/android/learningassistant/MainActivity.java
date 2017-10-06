@@ -8,9 +8,14 @@ import android.util.Log;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 0;
     private FirebaseAuth auth;
+    List<AuthUI.IdpConfig> providers;
+
 
 
     @Override
@@ -18,21 +23,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
          auth = FirebaseAuth.getInstance();
+        providers = new ArrayList<>();
+
         if (auth.getCurrentUser() != null) {
             Log.d("AUTH", auth.getCurrentUser().getEmail());
             startActivity(new Intent(this, Navigation.class));
             finish();
             return;
         } else {
-            startActivityForResult(AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setProviders(
-                            AuthUI.GOOGLE_PROVIDER,
-                            AuthUI.FACEBOOK_PROVIDER,
-                            AuthUI.EMAIL_PROVIDER)
-                    .setTheme(R.style.AuthBackground)
+            providers.add(new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build());
+            providers.add(new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build());
+            providers.add(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build());
 
-                    .build(), RC_SIGN_IN);
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setIsSmartLockEnabled(false)
+                            .setProviders(providers)
+                            .build(),
+                    RC_SIGN_IN);
 
         }
     }

@@ -2,6 +2,7 @@ package com.android.learningassistant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.clover_studio.spikachatmodule.ChatActivity;
 import com.clover_studio.spikachatmodule.models.Config;
@@ -27,6 +29,7 @@ public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth auth;
     EditText room;
+    boolean doubleBackToExitPressedOnce = false;
     String id;
     Toolbar toolbar = null;
     NavigationView navigationView=null;
@@ -65,7 +68,6 @@ public class Navigation extends AppCompatActivity
 
                                     snackbar.show();
 
-
                                 } else {
                                     User user = new User();
                                     user.roomID = id;
@@ -73,8 +75,8 @@ public class Navigation extends AppCompatActivity
                                     user.name = auth.getCurrentUser().getDisplayName().toString();
                                     user.avatarURL = auth.getCurrentUser().getPhotoUrl().toString();
                                     Config config = new Config();
-                                    config.apiBaseUrl = "http://192.168.43.114:80/spika/v1/";
-                                    config.socketUrl = "http://192.168.43.114:80/spika";
+                                    config.apiBaseUrl = "http://192.168.122.204:80/spika/v1/";
+                                    config.socketUrl = "http://192.168.122.204:80/spika";
 
                                     ChatActivity.startChatActivityWithConfig(Navigation.this, user, config);
                                 }
@@ -103,11 +105,22 @@ public class Navigation extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
 
+        this.doubleBackToExitPressedOnce = true;
+        startActivity(new Intent(Navigation.this,Navigation.class));
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
+        new Handler().postDelayed(new Runnable() {
 
-
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
     @Override

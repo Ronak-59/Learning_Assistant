@@ -1,4 +1,3 @@
-include ':app', ':chat', ':attendance', ':forum'
+include ':app', ':chat', ':attendance'
 project(':chat').projectDir = new File('SpikaChatModule/app')
 project(':attendance').projectDir = new File('AttendanceDiary/app')
-project(':forum').projectDir = new File('BackTalkr/app')

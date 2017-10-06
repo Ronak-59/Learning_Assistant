@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "181792826162-kgicjel4slf9i05n2675od9m9gqamffm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.learningassistant",
+            "certificate_hash": "0a9c3eb318df7fc08b5ec54d429350d69d37012c"
+          }
+        },
+        {
           "client_id": "181792826162-fq03mtk12vd5ouk389kqq6j29ffm18oo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.android.learningassistant",
-            "certificate_hash": "2FFCB0C99A383F25A867EAFE4F80A28DB11CD5E4"
+            "certificate_hash": "2ffcb0c99a383f25a867eafe4f80a28db11cd5e4"
           }
         },
         {

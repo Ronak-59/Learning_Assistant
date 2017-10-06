@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/AttendanceDiary/app/attendance.iml" filepath="$PROJECT_DIR$/AttendanceDiary/app/attendance.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpikaChatModule/app/chat.iml" filepath="$PROJECT_DIR$/SpikaChatModule/app/chat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BackTalkr/app/forum.iml" filepath="$PROJECT_DIR$/BackTalkr/app/forum.iml" />
     </modules>
   </component>
 </project>
