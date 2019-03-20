@@ -1,6 +1,7 @@
 package com.android.learningassistant;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.VideoView;
+
+import com.developers.algoexplorer.*;
 
 
 /**
@@ -62,10 +65,8 @@ public class Courses extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        startActivity(new Intent(getContext(), com.developers.algoexplorer.MainActivity.class));
+
 
     }
 
@@ -73,7 +74,7 @@ public class Courses extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_courses, container, false);
-        videoPlay = (VideoView)view.findViewById(R.id.video_play);
+     /*   videoPlay = (VideoView)view.findViewById(R.id.video_play);
 
         cardview1=(CardView)view.findViewById(R.id.c_android);
         cardview1.setOnClickListener(new View.OnClickListener(){
@@ -135,6 +136,7 @@ public class Courses extends Fragment {
                 videoPlay.start();
             }
         });
+        */
         return view;
     }
 

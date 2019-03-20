@@ -1,3 +1,7 @@
-include ':app', ':chat', ':attendance'
+include ':app', ':chat', ':attendance', ':uncover', ':library', ':algorithm', ':jobs', ':events'
 project(':chat').projectDir = new File('SpikaChatModule/app')
 project(':attendance').projectDir = new File('AttendanceDiary/app')
+project(':uncover').projectDir = new File('google-books-android-viewer/uncover')
+project(':library').projectDir = new File('google-books-android-viewer/library')
+project(':jobs').projectDir = new File('DevJobs/jobs')
+project(':events').projectDir = new File('SuperMeetup/events')

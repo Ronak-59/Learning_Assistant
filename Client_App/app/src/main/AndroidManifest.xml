@@ -30,6 +30,15 @@
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".E_Library"></activity>
+        <activity android:name=".AboutUs">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="www.googal.com" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

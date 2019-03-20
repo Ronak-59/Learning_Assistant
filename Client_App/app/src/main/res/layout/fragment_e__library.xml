@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,8 +6,51 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Please select the Database : "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:id="@+id/textViewxd"
+        android:textSize="22sp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#555" />
 
-</FrameLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewxd"
+        android:layout_margin="40dp"
+        android:id="@+id/radiogrp_library">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Books"
+            android:textSize="18sp"
+            android:textColor="#555"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SVKM Digital Library"
+            android:textSize="18sp"
+            android:textColor="#555" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PDF Bank"
+            android:textSize="18sp"
+            android:textColor="#555" />
+    </RadioGroup>
+    <Button
+        android:id="@+id/joinlibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radiogrp_library"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textColor="#555"
+        android:text="Enter >"
+        android:textSize="22sp"/>
+
+</RelativeLayout>

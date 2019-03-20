@@ -3,6 +3,7 @@ package com.android.learningassistant;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -13,21 +14,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.clover_studio.spikachatmodule.ChatActivity;
-import com.clover_studio.spikachatmodule.models.Config;
-import com.clover_studio.spikachatmodule.models.User;
-import com.google.firebase.auth.FirebaseAuth;
+import com.ames.books.BookListActivity;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.ionicframework.attendance914014.MyActivity;
+import com.supermeetup.supermeetup.activities.LoginActivity;
 
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseAuth auth;
     EditText room;
     boolean doubleBackToExitPressedOnce = false;
     String id;
@@ -39,57 +40,18 @@ public class Navigation extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        auth=FirebaseAuth.getInstance();
 
-        Courses fragment = new Courses();
+
+
+        UpcomingWorkshops fragment = new UpcomingWorkshops();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-        toolbar.setTitle("Courses");
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(view.getId()==R.id.fab) {
-                    setContentView(R.layout.choose_room);
-                    Button join = (Button) findViewById(R.id.button3);
-
-                    join.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (view.getId() == R.id.button3) {
-                                room = (EditText) findViewById(R.id.room_id);
-                                id = room.getText().toString();
-                                if (id.length() < 1) {
-                                    Snackbar snackbar = Snackbar
-                                            .make(view, "Please Enter the Room id", Snackbar.LENGTH_LONG);
-
-                                    snackbar.show();
-
-                                } else {
-                                    User user = new User();
-                                    user.roomID = id;
-                                    user.userID = auth.getCurrentUser().getDisplayName().toString();
-                                    user.name = auth.getCurrentUser().getDisplayName().toString();
-                                    user.avatarURL = auth.getCurrentUser().getPhotoUrl().toString();
-                                    Config config = new Config();
-                                    config.apiBaseUrl = "http://192.168.122.204:80/spika/v1/";
-                                    config.socketUrl = "http://192.168.122.204:80/spika";
-
-                                    ChatActivity.startChatActivityWithConfig(Navigation.this, user, config);
-                                }
-                            }
-                        }
-                    });
-                }
+        toolbar.setTitle("Upcoming Workshops");
 
 
 
-                }
-
-        });
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -103,24 +65,46 @@ public class Navigation extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void signOut(){
+        Intent signOutIntent = new Intent(Navigation.this, MainActivity.class);
+        startActivity(signOutIntent);
+        finish();
+    }
+    private void displayMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+//    @Override
+//    public void onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            finish();
+//            System.exit(0);
+//        }
+//
+//        this.doubleBackToExitPressedOnce = true;
+//        startActivity(new Intent(getBaseContext(),Navigation.class));
+//        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+//
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                doubleBackToExitPressedOnce=false;
+//            }
+//        }, 2000);
+//    }
+
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
+
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
             super.onBackPressed();
-            return;
+            //additional code
+        } else {
+            getFragmentManager().popBackStack();
         }
 
-        this.doubleBackToExitPressedOnce = true;
-        startActivity(new Intent(Navigation.this,Navigation.class));
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
     }
 
     @Override
@@ -141,6 +125,20 @@ public class Navigation extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_signout) {
+            AuthUI.getInstance()
+                    .signOut(Navigation.this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                signOut();
+                            }else {
+                                displayMessage("Signout Error");
+                            }
+                        }
+                    });
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -156,64 +154,25 @@ public class Navigation extends AppCompatActivity
             Intent intent = new Intent(this,MyActivity.class);
             startActivity(intent);
         } else if (id == R.id.courses) {
-            Courses fragment = new Courses();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("Courses");
+            startActivity(new Intent(Navigation.this, com.developers.algoexplorer.MainActivity.class));
 
 
         } else if (id == R.id.e_library) {
-            E_Library fragment = new E_Library();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("E-Library");
-
+           startActivity(new Intent(Navigation.this, E_Library.class));
         } else if (id == R.id.jobs) {
-            Jobs_Internships fragment = new Jobs_Internships();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("Jobs/Internships");
+            startActivity(new Intent(Navigation.this, com.trevorhalvorson.devjobs.activity.MainActivity.class));
 
 
         } else if (id == R.id.projects) {
-            Projects fragment = new Projects();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("Projects");
+           // startActivity(new Intent(Navigation.this, KanbanActivity.class));
 
-
-        } else if (id == R.id.games) {
-            Games fragment = new Games();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("Games");
 
 
         } else if (id == R.id.workshops) {
-            UpcomingWorkshops fragment = new UpcomingWorkshops();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("Upcoming Workshops");
+           startActivity(new Intent(Navigation.this, LoginActivity.class));
 
         } else if (id == R.id.about_us) {
-            AboutUs fragment = new AboutUs();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            toolbar.setTitle("About Us");
+            startActivity(new Intent(Navigation.this,AboutUs.class));
 
 
         }else if (id == R.id.forum) {

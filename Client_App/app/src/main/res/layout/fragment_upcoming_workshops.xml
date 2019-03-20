@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="@android:color/holo_blue_light"
+    android:background="#a6a7a8"
     android:layout_marginTop="60dp">
 
 
@@ -15,7 +15,7 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
+        android:background="#a6a7a8"
         android:layout_marginTop="10dp">
         <LinearLayout
             android:layout_width="wrap_content"

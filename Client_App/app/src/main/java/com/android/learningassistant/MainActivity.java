@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                             .createSignInIntentBuilder()
                             .setIsSmartLockEnabled(false)
                             .setProviders(providers)
+                            .setTheme(R.style.AuthBackground)
                             .build(),
                     RC_SIGN_IN);
 

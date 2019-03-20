@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AttendanceDiary/app" />
+            <option value="$PROJECT_DIR$/DevJobs/jobs" />
+            <option value="$PROJECT_DIR$/SpikaChatModule/app" />
+            <option value="$PROJECT_DIR$/SuperMeetup/events" />
+            <option value="$PROJECT_DIR$/algorithm" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/google-books-android-viewer/library" />
+            <option value="$PROJECT_DIR$/google-books-android-viewer/uncover" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

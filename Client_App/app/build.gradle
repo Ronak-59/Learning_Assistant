@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    dataBinding.enabled = true
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
@@ -44,11 +45,19 @@ dependencies {
     })
     compile project(':chat')
     compile project(':attendance')
+    compile project(':library')
+    compile project(':uncover')
+    compile project(':algorithm')
+    compile project(':jobs')
+    compile project(':events')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.firebaseui:firebase-ui-auth:3.0.0'
     compile 'com.google.firebase:firebase-auth:11.4.2'
     compile 'com.android.support:support-compat:26.1.0'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.github.jrvansuita:MaterialAbout:+'
+    compile 'org.sufficientlysecure:donations:2.5'
+
 
     testCompile 'junit:junit:4.12'
 }
