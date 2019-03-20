@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.trevorhalvorson.devjobs"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name=".activity.JobDetailActivity"/>
+        <activity
+            android:name=".activity.SettingsPreferenceActivity"
+            android:label="Preferences"/>
+    </application>
+
+</manifest>

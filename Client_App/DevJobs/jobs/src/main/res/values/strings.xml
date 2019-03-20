@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Developer Jobs</string>
+    <string name="action_settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="just_posted">Just Posted</string>
+    <string name="location_hint">Enter location</string>
+    <string name="description_hint">Description</string>
+    <string name="subtitle">Most Recent</string>
+    <string name="action_restore">Restore Hidden Jobs</string>
+    <string name="view_on_web">View on GitHub</string>
+    <string name="sb_action">UNDO</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="cb_title">Web Pages</string>
+    <string name="wv_key">devJobs_pref_wv_key</string>
+    <string name="wv_default">true</string>
+    <string name="wv_off">Open in browser</string>
+    <string name="wv_on">View within the app</string>
+    <string name="share">Share</string>
+    <string name="welcome">Welcome to DevJobs</string>
+    <string name="home">Home</string>
+    <string name="remove_saved_job">Removed from Saved Jobs</string>
+    <string name="search_description">Enter job description</string>
+    <string name="no_jobs_text">No jobs found</string>
+    <string name="retrofit_error_text">Please check network connection and try again</string>
+    <string name="location">Set Location</string>
+    <string name="saved_searches">Saved Searches</string>
+    <string name="save_search">Save Search</string>
+    <string name="search_removed_sb">Saved Search Removed</string>
+    <string name="sb_added_search">" added to saved searches"</string>
+    <string name="sc_loc_set">"Location set to "</string>
+</resources>

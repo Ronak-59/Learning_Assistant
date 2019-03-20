@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="88dp"
+             android:background="?android:attr/selectableItemBackground"
+             android:padding="16dp">
+
+    <TextView
+        android:id="@+id/jobTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:ellipsize="end"
+        android:maxLength="40"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:text="Title"/>
+
+    <TextView
+        android:id="@+id/jobCompanyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:textColor="#000000"
+        tools:text="Company"/>
+
+    <TextView
+        android:id="@+id/jobLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:textColor="#000000"
+        tools:text="Location"/>
+
+    <TextView
+        android:id="@+id/jobDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:textColor="#9e9e9e"
+        tools:text="Date"/>
+
+</FrameLayout>

@@ -1,0 +1,14 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/title_activity_settings">
+
+        <CheckBoxPreference
+            android:defaultValue="@string/wv_default"
+            android:key="@string/wv_key"
+            android:summaryOff="@string/wv_off"
+            android:summaryOn="@string/wv_on"
+            android:title="@string/cb_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

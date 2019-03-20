@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        style="@style/div.vlist"
+        android:gravity="center"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp">
+
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/category_title"
+            style="@style/div.p.small"
+            android:gravity="center"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text=""/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="88dp"
+             android:background="?android:attr/selectableItemBackground"
+             android:padding="16dp">
+
+    <TextView
+        android:id="@+id/searchLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#9e9e9e"
+        tools:text="Location"/>
+
+    <TextView
+        android:id="@+id/searchDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:text="Description"/>
+</FrameLayout>

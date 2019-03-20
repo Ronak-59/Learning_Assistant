@@ -1,0 +1,30 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/detail_coord_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.JobDetailActivity">
+
+    <include
+        android:id="@+id/detail_toolbar"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_toolbar"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="@dimen/abc_action_bar_default_height_material">
+
+        <TextView
+            android:id="@+id/description_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:padding="8dp"/>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

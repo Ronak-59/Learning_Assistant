@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_nearby"
+        android:icon="@mipmap/ic_nearby"
+        android:title="@string/navigation_nearby"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_find"
+        android:icon="@mipmap/ic_find"
+        android:title="@string/navigation_find"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_new"
+        android:icon="@mipmap/ic_new"
+        android:title="@string/navigation_new"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_shake"
+        android:icon="@mipmap/ic_shake"
+        android:title="@string/navigation_shake"
+        app:showAsAction="ifRoom" />
+
+</menu>

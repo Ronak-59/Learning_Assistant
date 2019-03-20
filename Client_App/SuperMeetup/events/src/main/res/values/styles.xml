@@ -1,0 +1,70 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.login" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <style name="actionbar" parent="@android:style/Theme.Holo">
+        <item name="android:textColorHint">@color/red100</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+        <!-- your other custom widget styles -->
+    </style>
+
+    <style name="div">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="div.vlist" parent="div">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="div.hlist" parent="div">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="div.h1" parent="div">
+        <item name="android:textColor">@color/textH1</item>
+        <item name="android:textSize">@dimen/h1</item>
+    </style>
+
+    <style name="div.h2" parent="div">
+        <item name="android:textColor">@color/textH2</item>
+        <item name="android:textSize">@dimen/h2</item>
+    </style>
+
+    <style name="div.p" parent="div">
+        <item name="android:textColor">@color/textP</item>
+        <item name="android:textSize">@dimen/p</item>
+    </style>
+
+    <style name="div.p.small" parent="div.p">
+        <item name="android:textSize">@dimen/p</item>
+    </style>
+
+    <style name="div.vlist.item" parent="div.vlist">
+        <item name="android:padding">@dimen/margin_normal</item>
+        <item name="android:layout_marginBottom">@dimen/margin_mid</item>
+    </style>
+
+    <style name="div.hlist.item" parent="div.hlist">
+        <item name="android:padding">@dimen/margin_normal</item>
+        <item name="android:layout_marginBottom">@dimen/margin_mid</item>
+    </style>
+
+    <style name="div.divider" parent="div">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/grey400</item>
+    </style>
+</resources>

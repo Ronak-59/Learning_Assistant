@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Attendance Diary</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="status">Status</string>
+    <string name="today">Today</string>
+    <string name="present">Present</string>
+    <string name="no_class">Undo</string>
+    <string name="absent">Absent</string>
+    <string name="title_activity_update">UpdateActivity</string>
+    <string name="add_subject">Add Subject</string>
+
+</resources>

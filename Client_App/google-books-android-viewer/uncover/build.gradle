@@ -1,0 +1,200 @@
+/*
+Copyright 2017 Audrius Meskauskas
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+ext {
+    libVersion = "2.0.2"
+    snapshot = false
+
+    libVersionName = snapshot? libVersion+"-SNAPSHOT" : libVersion
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 25
+        versionCode 2
+        versionName project.ext.libVersionName
+        setProperty("archivesBaseName", "uncover-$versionName")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+}
+
+
+signing {
+    sign configurations.default
+    sign configurations.archives
+
+    // Shame on that solutions below, but seems that new implementation
+    // of the maven publisher plugin can only generate pom on publishing. 
+    // As a result, gradle publish must run twice.
+    try {
+        sign file("$buildDir/publications/maven/pom-default.xml")
+    } catch (Exception exc) {
+        println "Sorry, please rerun the task"
+    }
+}
+
+
+// Only this library is published
+// ../gradlew clean build publishMavenPublicationToMavenLocalRepository
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'io.github.andviane' 
+            artifactId 'uncover'
+            version android.defaultConfig.versionName
+
+            artifact(sourceJar)
+            artifact(javadocJar)
+            artifact("$buildDir/libs/uncover-${android.defaultConfig.versionName}-javadoc.jar.asc") {
+                classifier = 'javadoc' 
+                extension = 'jar.asc'
+                builtBy signArchives
+            }
+            artifact("$buildDir/libs/uncover-${android.defaultConfig.versionName}-source.jar.asc")  {
+                classifier = 'source' 
+                extension = 'jar.asc'
+                builtBy signArchives
+            }
+
+            artifact("$buildDir/publications/maven/pom-default.xml.asc")  {
+                extension = 'pom.asc'
+                classifier = null 
+                builtBy signDefault
+            }
+
+            artifact("$buildDir/outputs/aar/uncover-${android.defaultConfig.versionName}-release.aar")
+            artifact("$buildDir/outputs/aar/uncover-${android.defaultConfig.versionName}-release.aar.asc")  {
+                extension = 'aar.asc' 
+                builtBy signDefault
+            }
+
+
+            pom.withXml {
+
+            def n = asNode();
+            n.appendNode('name', 'Uncover')
+            n.appendNode('description', "Android library to bridge infinite scroller based on RecyclerView with slow asynchronous data source like web service or database. Please use @aar when referencing, like ' compile ('io.github.andviane:uncover:2.0.1@aar') in Gradle'")
+            n.appendNode('url', 'https://github.com/andviane/google-books-android-viewer')
+            def licenses = n.appendNode('licenses')
+            def apache = licenses.appendNode('license')
+            apache.appendNode('name', 'Apache License, Version 2.0')
+            apache.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
+            apache.appendNode('distribution', 'repo')
+
+            def scm = n.appendNode('scm')  
+            scm.appendNode('url', 'https://github.com/andviane/google-books-android-viewer.git')
+
+            def dependenciesNode = asNode().appendNode('dependencies')
+
+            configurations.compile.allDependencies.each {
+              if (it.group) {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+              } 
+            }
+            configurations.testCompile.allDependencies.each {
+              if (it.group) {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                        dependencyNode.appendNode('scope', 'test')
+              }
+            }
+            def d = n.appendNode('developers')
+            def me = d.appendNode('developer')
+            me.appendNode('id', 'andviane')
+            me.appendNode('name', "Audrius Meskauskas")
+            me.appendNode('email', "mike.pukuotukas@meska.info")
+            me.appendNode('url', "https://ch.linkedin.com/in/audriusa")
+            def roles = me.appendNode('roles')
+            roles.appendNode('role', "architect")
+            roles.appendNode('role', "developer")
+            me.appendNode('timezone', 'utc')
+         }
+       }
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+          credentials {
+            username System.env.ANDVIANE_USERNAME
+            password System.env.ANDVIANE_PASSWORD
+          }
+
+          if (snapshot) {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+          } else {
+            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+          }
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "source"
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    title = "Uncover library for Android"
+    destinationDir = file "$buildDir/../../javadoc"
+
+    doFirst {
+      delete destinationDir
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourceJar
+}
+
+    
+
+
