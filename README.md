@@ -42,4 +42,4 @@ Key Features :
 <br>
 <b>  # And many more... </b>
 <br>
-<img src="Screenshots/nav_drawer.png" height="534" width="300">
+<img src="Client_App/Screenshots/nav_drawer.png" height="534" width="300">
